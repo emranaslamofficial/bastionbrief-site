@@ -1,0 +1,17 @@
+{
+  "name": "bastion-brief",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bastion Brief — a static, zero-dependency cybersecurity education publication.",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node build.js",
+    "stats": "node build.js --stats",
+    "serve": "node scripts/serve.js",
+    "dev": "node build.js && node scripts/serve.js --watch",
+    "images": "node scripts/render-images.js && node build.js"
+  }
+}
