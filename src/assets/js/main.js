@@ -275,12 +275,24 @@ if (finePointer && !reduceMotion) {
   const scene = $('[data-parallax]');
   if (scene) {
     const hero = scene.closest('.hero');
-    hero.addEventListener('pointermove', (e) => {
-      const x = e.clientX / window.innerWidth - 0.5;
-      const y = e.clientY / window.innerHeight - 0.5;
-      scene.style.setProperty('--ry', `${x * 14}deg`);
-      scene.style.setProperty('--rx', `${-y * 10}deg`);
-    });
+    let pending = 0;
+    let lx = 0;
+    let ly = 0;
+    // Coalesce pointer events: at most one style update per animation frame.
+    hero.addEventListener(
+      'pointermove',
+      (e) => {
+        lx = e.clientX / window.innerWidth - 0.5;
+        ly = e.clientY / window.innerHeight - 0.5;
+        if (pending) return;
+        pending = requestAnimationFrame(() => {
+          pending = 0;
+          scene.style.setProperty('--ry', `${(lx * 14).toFixed(2)}deg`);
+          scene.style.setProperty('--rx', `${(-ly * 10).toFixed(2)}deg`);
+        });
+      },
+      { passive: true }
+    );
     hero.addEventListener('pointerleave', () => {
       scene.style.setProperty('--ry', '0deg');
       scene.style.setProperty('--rx', '0deg');

@@ -1265,27 +1265,27 @@ main:focus {
   mask-image: radial-gradient(ellipse 80% 70% at 60% 30%, #000 20%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 30%, #000 20%, transparent 75%);
 }
+/* Static soft glows: a wide radial gradient looks the same as a blurred circle
+   but costs nothing per frame (no filter, no animation). */
 .hero__glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
   opacity: 0.5;
+  pointer-events: none;
 }
 .hero__glow--a {
-  width: 520px;
-  height: 520px;
-  right: 4%;
-  top: 6%;
-  background: radial-gradient(circle, rgba(98, 230, 196, 0.5), transparent 65%);
-  animation: drift 18s var(--ease-in-out) infinite alternate;
+  width: 760px;
+  height: 760px;
+  right: -4%;
+  top: -8%;
+  background: radial-gradient(circle, rgba(98, 230, 196, 0.42), rgba(98, 230, 196, 0.12) 35%, transparent 68%);
 }
 .hero__glow--b {
-  width: 620px;
-  height: 620px;
-  left: -10%;
-  bottom: -30%;
-  background: radial-gradient(circle, rgba(139, 147, 255, 0.4), transparent 65%);
-  animation: drift 22s var(--ease-in-out) infinite alternate-reverse;
+  width: 860px;
+  height: 860px;
+  left: -20%;
+  bottom: -45%;
+  background: radial-gradient(circle, rgba(139, 147, 255, 0.34), rgba(139, 147, 255, 0.1) 35%, transparent 68%);
 }
 .hero__inner {
   position: relative;
@@ -1373,6 +1373,9 @@ main:focus {
   border: 1px solid rgba(255, 255, 255, 0.09);
   transform-style: preserve-3d;
 }
+.ring {
+  will-change: rotate;
+}
 .ring--1 {
   width: 62%;
   height: 62%;
@@ -1420,6 +1423,7 @@ main:focus {
   transform: translate(-50%, -52%);
   transform-style: preserve-3d;
   animation: float 7s var(--ease-in-out) infinite;
+  will-change: translate; /* filters rasterise once; the float is composited */
 }
 .shield3d__layer {
   position: absolute;
@@ -1434,7 +1438,6 @@ main:focus {
 .shield3d__layer--mid {
   transform: translateZ(0);
   filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 40px rgba(98, 230, 196, 0.18));
-  backdrop-filter: blur(2px);
 }
 .shield3d__layer--front {
   transform: translateZ(60px) scale(0.92);
@@ -1447,11 +1450,11 @@ main:focus {
   gap: 10px;
   padding: 10px 14px 10px 10px;
   border-radius: 14px;
-  background: rgba(14, 19, 28, 0.72);
+  /* Solid glass tint instead of backdrop-filter: blurring a live canvas every frame is very costly. */
+  background: linear-gradient(160deg, rgba(22, 29, 41, 0.94), rgba(12, 16, 24, 0.94));
   border: 1px solid var(--line-2);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.7);
+  will-change: translate;
   font-size: 0.78rem;
   line-height: 1.25;
   white-space: nowrap;
