@@ -111,9 +111,11 @@ No trademark search was performed. Run a trademark check in your target markets 
 
 ### Logo concept
 
-A **five-bastion star fort** outline with a solid inner fort, drawn in the brand gradient. The shape
-stands for defence in depth: overlapping layers that each cover the others' blind spots. It rotates
-72° (one bastion) on hover. Source: `lib/art.js` (`logoMark`, `faviconSvg`). The wordmark sets
+A **split two-tone shield with a keyhole**: iris on the left, mint on the right, with the keyhole cut
+through the centre. The halves stand for "understand the attack" and "stop the attack", and the
+keyhole for access that is granted, never taken. It is bold and solid, so it stays legible at 16px
+favicon size. On the home page, the hero's glass shield holds a large glowing version of the keyhole.
+Source: `lib/art.js` (`markShapes`, `logoMark`, `faviconSvg`). The wordmark sets
 "Bastion" in Inter Tight Bold and *Brief* in Instrument Serif Italic, in mint.
 
 ### Colour tokens

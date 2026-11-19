@@ -523,7 +523,7 @@ main:focus {
   transition: transform 0.6s var(--ease);
 }
 .brand:hover .logo-mark {
-  transform: rotate(72deg);
+  transform: translateY(-1px) scale(1.08);
 }
 .nav {
   margin-left: auto;

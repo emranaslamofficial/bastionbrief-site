@@ -15,7 +15,9 @@ Bastion Brief was created to close that gap. We publish practical, plain-languag
 
 ## What the name means
 
-A **bastion** is the angular projection on a star-shaped fort, designed so that defenders could cover every approach and no wall was left unwatched. Our logo is a stylised star fort for that reason: good security is rarely one big wall. It is a set of overlapping layers — a strong password, a second factor, a careful pause before clicking — each covering the gaps in the others.
+A **bastion** is the angular projection on a fortress wall, designed so that defenders could cover every approach and no wall was left unwatched. Good security works the same way: it is rarely one big wall, but a set of overlapping layers — a strong password, a second factor, a careful pause before clicking — each covering the gaps in the others.
+
+Our logo is a shield split into two tones with a keyhole at its centre. The two halves stand for the two sides of every guide we write: understanding how an attack works, and knowing how to stop it. The keyhole is a reminder that access should only ever be granted, never taken.
 
 A **brief** is what you give someone who needs to understand a situation quickly and act well. That is what every article aims to be.
 

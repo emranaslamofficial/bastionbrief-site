@@ -16,7 +16,7 @@ const os = require('os');
 const path = require('path');
 const { execFileSync } = require('child_process');
 const { parseFrontMatter } = require('../lib/markdown');
-const { articleArt, fortPoints } = require('../lib/art');
+const { articleArt, markShapes } = require('../lib/art');
 const categories = require('../content/categories');
 const site = require('../content/site');
 
@@ -66,7 +66,7 @@ function shot(html, out, w, h) {
 }
 
 const FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Inter+Tight:wght@600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500&display=block">';
-const fortSvg = (size, rounded, bg = true) => `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 32 32"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#62e6c4"/><stop offset="1" stop-color="#8b93ff"/></linearGradient></defs>${bg ? `<rect width="32" height="32" rx="${rounded}" fill="#0a0d14"/>` : ''}<polygon points="${fortPoints(16, 16.8, 0.92)}" fill="none" stroke="url(#g)" stroke-width="1.9" stroke-linejoin="round"/><polygon points="${fortPoints(16, 16.8, 0.42)}" fill="url(#g)"/></svg>`;
+const fortSvg = (size, rounded, bg = true) => `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 32 32">${bg ? `<rect width="32" height="32" rx="${rounded}" fill="#0a0d14"/><g transform="translate(16 16) scale(1.08) translate(-16 -16)">${markShapes("#0a0d14")}</g>` : markShapes("#05070b")}</svg>`;
 
 function iconPage(size, rounded) {
   return `<!doctype html><html><body style="margin:0;background:transparent">${fortSvg(size, rounded)}</body></html>`;
